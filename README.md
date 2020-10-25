@@ -6,6 +6,6 @@ From Zemberek NLP library for Turkish language, spell checking and noise normali
 
 The destination of the text preprocessing codes is the "Normalizasyon ve Yazım Denetimi" folder.
 
-The preprocessed dataset and raw codes of the deep learning model are in the "Model Eğitim ve Test Aşaması" folder.
+The preprocessed dataset and raw codes of the deep learning model are in the "Model Eğitim ve Test Aşaması" folder. In this phase, neural network was saved as .h5 file, to use it each time without compiling.
 
 Finally, main application destination is the "Uygulama" folder. Here, you should run the "Arayüz.py" first to be able to run all codes properly.
