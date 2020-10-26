@@ -13,7 +13,7 @@ import pandas as pd
 import re
 from nltk.corpus import stopwords
 
-df = pd.read_csv(r"C:\Users\burha\Desktop\Kodlar\Duygu Analizi\magaza_yorumlari.csv", encoding = "utf-16")
+df = pd.read_csv("magaza_yorumlari.csv", encoding = "utf-16")
 
 gorusler = df['Görüş']
 durumlar = df["Durum"]
