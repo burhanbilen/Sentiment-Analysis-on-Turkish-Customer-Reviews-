@@ -8,6 +8,9 @@ This project is based on various customer reviews from different stores and the 
 
 3) Finally, main application destination is the "Uygulama" folder. Here, you should run the "Arayüz.py" first to be able to run all codes properly.
 
+
 Arayüz.py: User Interface
+
 eMagaza.py: Scraping Amazon Customer Reviews
+
 LSTM.py: Use of the Saved Model and Finding the Positive Reviews
