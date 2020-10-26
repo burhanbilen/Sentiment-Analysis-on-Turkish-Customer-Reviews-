@@ -10,7 +10,5 @@ This project is based on various customer reviews from different stores and the 
 
 
 Arayüz.py: User Interface
-
 eMagaza.py: Scraping Amazon Customer Reviews
-
 LSTM.py: Use of the Saved Model and Finding the Positive Reviews
