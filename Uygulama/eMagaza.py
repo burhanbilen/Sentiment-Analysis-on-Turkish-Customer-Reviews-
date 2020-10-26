@@ -43,14 +43,14 @@ class VeriCek:
             x = re.sub(r'\<a href', ' ', x)
             x = re.sub(r'&amp;', '', x)
             x = re.sub(r'<br />', ' ', x)
-            """x = re.sub(r"^\s+|\s+$", "", x)
+            x = re.sub(r"^\s+|\s+$", "", x)
             x = re.sub(r'[_"\-;%()|+&=*%.,!?:#$@\[\]/]', ' ', x)
             x = re.sub(r'\'', ' ', x)
             x = re.sub('\s{2,}', ' ', x)
             x = re.sub(r'\s+[a-zA-Z]\s+', ' ', x)
             x = re.sub(r'\^[a-zA-Z]\s+', ' ', x)
             x = re.sub(r'\s+', ' ', x, flags=re.I)
-            x = re.sub(r'^b\s+', '', x)"""
+            x = re.sub(r'^b\s+', '', x)
             x = x.split()
             x = [word for word in x if word not in etkisizler]
             x = ' '.join(x)
