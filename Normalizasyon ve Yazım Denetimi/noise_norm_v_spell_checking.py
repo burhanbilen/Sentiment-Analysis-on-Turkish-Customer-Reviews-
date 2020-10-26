@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
 gorusler_temiz = []
 etkisizler = list(stopwords.words('Turkish'))
-for text in gorusler:
+for text in gorusler_son:
     text = str(text)
     x = text.lower()
     x = re.sub(r'\W', ' ', str(x))
