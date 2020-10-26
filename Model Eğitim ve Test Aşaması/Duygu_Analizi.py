@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing import sequence
 from keras.models import Sequential
-from keras.layers import Dense, LSTM, SpatialDropout1D
+from keras.layers import Dense, LSTM
 from keras.layers.embeddings import Embedding
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from sklearn.metrics import confusion_matrix
@@ -36,9 +36,8 @@ X_new = sequence.pad_sequences(sequences, padding = "pre", truncating ="pre")
 X_train,X_test,y_train,y_test = train_test_split(X_new, y, test_size=0.10, random_state=42)
 
 model = Sequential()
-model.add(Embedding(num_words, 128, input_length=X_train.shape[1]))
-model.add(SpatialDropout1D(0.3))
-model.add(LSTM(172, recurrent_dropout = 0.4, dropout = 0.3))
+model.add(Embedding(num_words, 172, input_length=X_train.shape[1]))
+model.add(LSTM(188, recurrent_dropout = 0.3, dropout = 0.5))
 model.add(Dense(1, activation = "sigmoid"))
 
 model.summary()
@@ -46,7 +45,7 @@ model.summary()
 model.compile(loss='binary_crossentropy',optimizer='rmsprop', metrics=['accuracy'])
 
 my_callbacks = [
-    EarlyStopping(patience=2),
+    EarlyStopping(patience=3),
     ModelCheckpoint(filepath='model.{epoch:02d}-{val_loss:.2f}.h5')
 ]
 model.fit(X_train, y_train, epochs=5, batch_size=32, validation_split = 0.15, callbacks = my_callbacks)
