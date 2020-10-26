@@ -1,12 +1,11 @@
 from tkinter import Button, Tk, Frame, Label, Text, W, N, S, E, WORD, END, HORIZONTAL
 from tkinter.ttk import Progressbar, Style
 from PIL import ImageTk
-
 import tkinter.messagebox as msg
 from eMagaza import VeriCek
 import time as t
 from LSTM import Model
- 
+
 class DuyguAnalizi:
     def __init__(self):
         self.pencere = Tk()
@@ -47,15 +46,15 @@ class DuyguAnalizi:
         self.progress['value'] = 0
 
         self.progress['value'] = 30
-        self.pencere.update_idletasks() 
+        self.pencere.update_idletasks()
         t.sleep(1)
       
         self.progress['value'] = 60
-        self.pencere.update_idletasks() 
+        self.pencere.update_idletasks()
         t.sleep(1)
       
         self.progress['value'] = 90
-        self.pencere.update_idletasks() 
+        self.pencere.update_idletasks()
         t.sleep(1)
         
         self.progress['value'] = 100
@@ -76,7 +75,7 @@ class DuyguAnalizi:
                     msg.showinfo("Bilgi","Olumluluk: Yüzde %.2f" % (sonuc))
                     self.progress['value'] = 0
                 
-            except IOError:
-                msg.showerror("Hata",'Lütfen Adresinizi "https://www..." Formunda Yazın.')
+            except:
+                msg.showerror("Hata",'Lütfen Adresinizi Kontrol Edin.\n"https://www." Formunda Yazdığınızdan Emin Olun.')
 
 DuyguAnalizi()
