@@ -13,26 +13,30 @@ class VeriCek:
                 sayac += 1
             if sayac == 6:
                 break
-        url_yeni = url_yeni.replace("dp/","product-reviews/")
-        url = url_yeni + "ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews&pageNumber="
-
+            
+        url_yeni = url.replace("dp/","product-reviews/")
+        url = url_yeni + "ref=cm_cr_arp_d_paging_btm_next_1?ie=UTF8&reviewerType=all_reviews&pageNumber="
+        
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36"}
         liste = []
+        liste_uzunlugu = []
         sayfa = 1
         sonraki_sayfa = ""
         while True:
             sonraki_sayfa = url + str(sayfa)
             req = requests.get(sonraki_sayfa, headers=headers)
             soup = BeautifulSoup(req.content,"html.parser")
-            durak = "mevcut seçimleriniz ile eşleşen yorum bulunamadı"
-            durak_kontrol = soup.find_all("span", attrs={"class" : "a-size-medium"})
-            if str(durak) not in str(durak_kontrol):
-                texts = soup.find_all("span",attrs={"data-hook" : "review-body"})
-                for i in range(len(texts)):
-                    liste.append([texts[i].find('span').text.strip()])
-                sayfa += 1
-            else:
+        
+            texts = soup.find_all("span", attrs={"data-hook" : "review-body"})
+            for i in range(len(texts)):
+                liste.append([texts[i].find('span').text.strip()])
+                print(texts[i].find('span').text.strip())
+            
+            if len(liste_uzunlugu) > 0 and liste_uzunlugu.count(liste_uzunlugu[len(liste_uzunlugu)-1]) > 1:
                 break
+            
+            sayfa += 1
+            liste_uzunlugu.append(len(liste))
 
         yorumlar_temiz = []
         etkisizler = list(stopwords.words('Turkish'))
