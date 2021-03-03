@@ -8,7 +8,7 @@ class Model:
         
         num_words = 2000
         tok = Tokenizer(num_words=num_words)
-        tok.fit_on_texts(veri)
+        #tok.fit_on_texts(veri)
         sequences = tok.texts_to_sequences(veri)
         yorumlar_X = sequence.pad_sequences(sequences, padding = "pre", truncating ="pre",maxlen=279)
         
